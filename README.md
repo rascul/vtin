@@ -5,6 +5,10 @@ gtk wrapper for tintin++
 
 THIS IS A WORK IN PROGRESS AND IS NOT FULLY FUNCTIONAL
 
+it currently looks something like this:
+
+[Imgur](http://i.imgur.com/33hfkZl.png?1)
+
 probably needs gtk3 and vte2 devel packages
 
 `tt++` must be somewhere in `$PATH`
