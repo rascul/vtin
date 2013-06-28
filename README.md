@@ -3,6 +3,8 @@ vtin
 
 gtk wrapper for tintin++
 
+(tintin++ is a mud client for unix related operating systems)
+
 THIS IS A WORK IN PROGRESS AND IS NOT FULLY FUNCTIONAL
 
 it currently looks something like this:
