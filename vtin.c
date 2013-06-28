@@ -43,7 +43,8 @@ int main(int argc, char *argv[]) {
 	 * if memory is an issue, setting this to a finite value (or 0 to disable it) might be useful */
 	vte_terminal_set_scrollback_lines(VTE_TERMINAL(term), -1);
 	
-	/* need more scrollbar */
+	/* need more scrollbar
+	 * thanks to xjuan and chpe in #gtk+ on irc.gnome.org for helping me figure this out */
 	scrollbar = gtk_scrollbar_new(GTK_ORIENTATION_VERTICAL, gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(term)));
 	
 	/* now we need the input widget */
