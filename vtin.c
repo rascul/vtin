@@ -53,12 +53,8 @@ int main(int argc, char *argv[]) {
 	
 	gtk_container_add(GTK_CONTAINER(window), box);
 	
-	gtk_widget_show(termscroll);
-	gtk_widget_show(input);
-	gtk_widget_show(term);
-	gtk_widget_show(box);
-	gtk_widget_show(window);
-	
+	gtk_widget_show_all(window);
+		
 	gtk_main();
 	return 0;
 }
