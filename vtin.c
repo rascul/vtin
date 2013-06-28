@@ -1,6 +1,5 @@
 #include <gtk/gtk.h>
 #include <vte/vte.h>
-#include <stdio.h>
 
 int main(int argc, char *argv[]) {
 	GtkWidget *window;
