@@ -5,7 +5,8 @@ int main(int argc, char *argv[]) {
 	GtkWidget *window;
 	GtkWidget *box;
 	GtkWidget *term;
- 	GtkWidget *input;
+	GtkWidget *termscroll;
+	GtkWidget *input;
 	
 	gtk_init(&argc, &argv);
 	
@@ -38,7 +39,11 @@ int main(int argc, char *argv[]) {
 	 * if memory is an issue, setting this to a finite value (or 0 to disable it) might be useful */
 	vte_terminal_set_scrollback_lines(VTE_TERMINAL(term), -1);
 	
-	gtk_box_pack_start(GTK_BOX(box), term, TRUE, TRUE, 0);
+	/* need more scrollbar */
+	termscroll = gtk_scrolled_window_new(NULL, NULL);
+	gtk_container_add(GTK_CONTAINER(termscroll), term);
+	
+	gtk_box_pack_start(GTK_BOX(box), termscroll, TRUE, TRUE, 0);
 	
 	/* now we need the input widget */
 	input = gtk_entry_new();
@@ -46,9 +51,10 @@ int main(int argc, char *argv[]) {
 	
 	gtk_container_add(GTK_CONTAINER(window), box);
 	
+	gtk_widget_show(termscroll);
 	gtk_widget_show(input);
 	gtk_widget_show(term);
-	gtk_widget_show(box);	
+	gtk_widget_show(box);
 	gtk_widget_show(window);
 	
 	gtk_main();
