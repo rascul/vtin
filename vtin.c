@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 	
 	/* now we need the input widget */
 	input = gtk_entry_new();
-	gtk_box_pack_start(GTK_BOX(box), input, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(box), input, FALSE, FALSE, 0);
 	
 	gtk_container_add(GTK_CONTAINER(window), box);
 	
