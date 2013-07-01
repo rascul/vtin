@@ -1,6 +1,14 @@
 #include <gtk/gtk.h>
 #include <vte/vte.h>
 
+static void signal_send_line(GtkWidget *widget, gpointer term) {
+	/* send line to tintin++ */
+	vte_terminal_feed_child(VTE_TERMINAL(term), gtk_entry_get_text(GTK_ENTRY(widget)), -1);
+	
+	/* don't forget the newline */
+	vte_terminal_feed_child(VTE_TERMINAL(term), "\n", -1);
+}
+
 int main(int argc, char *argv[]) {
 	GtkWidget *window;
 	GtkWidget *box;
@@ -49,6 +57,9 @@ int main(int argc, char *argv[]) {
 	
 	/* now we need the input widget */
 	input = gtk_entry_new();
+	
+	/* signal to send stuff to tintin++ when enter is pressed */
+	g_signal_connect_object(input, "activate", G_CALLBACK(signal_send_line), term, 0);
 	
 	/* pack up */
 	gtk_box_pack_start(GTK_BOX(termbox), term, TRUE, TRUE, 0);
