@@ -35,6 +35,9 @@ int main(int argc, char *argv[]) {
 	char **term_argv = NULL;
 	term = vte_terminal_new();
 	
+	/* remove ability for focus on term */
+	gtk_widget_set_can_focus(GTK_WIDGET(term), FALSE);
+	
 	/* tt++ must be in $PATH */
 	g_shell_parse_argv("tt++", NULL, &term_argv, NULL);
 	vte_terminal_fork_command_full(VTE_TERMINAL(term), VTE_PTY_DEFAULT, NULL, term_argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
