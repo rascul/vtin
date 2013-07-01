@@ -7,6 +7,9 @@ static void signal_send_line(GtkWidget *widget, gpointer term) {
 	
 	/* don't forget the newline */
 	vte_terminal_feed_child(VTE_TERMINAL(term), "\n", -1);
+	
+	/* highlight last entry */
+	gtk_widget_grab_focus(GTK_WIDGET(widget));
 }
 
 int main(int argc, char *argv[]) {
