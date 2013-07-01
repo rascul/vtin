@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 	GtkWidget *window;
 	GtkWidget *box;
 	GtkWidget *term;
-	GtkWidget *input;
+	GtkWidget *entry;
 	GtkWidget *termbox;
 	GtkWidget *scrollbar;
 	
@@ -62,16 +62,16 @@ int main(int argc, char *argv[]) {
 	scrollbar = gtk_scrollbar_new(GTK_ORIENTATION_VERTICAL, gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(term)));
 	
 	/* now we need the input widget */
-	input = gtk_entry_new();
+	entry = gtk_entry_new();
 	
 	/* signal to send stuff to tintin++ when enter is pressed */
-	g_signal_connect_object(input, "activate", G_CALLBACK(signal_send_line), term, 0);
+	g_signal_connect_object(entry, "activate", G_CALLBACK(signal_send_line), term, 0);
 	
 	/* pack up */
 	gtk_box_pack_start(GTK_BOX(termbox), term, TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(termbox), scrollbar, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(box), termbox, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(box), input, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), entry, FALSE, FALSE, 0);
 	gtk_container_add(GTK_CONTAINER(window), box);
 	
 	/* load up */
