@@ -1,7 +1,7 @@
 vtin
 ====
 
-gtk wrapper for tintin++
+gtk wrapper for [tintin++](http://tintin.sourceforge.net) ([http://tintin.sourceforge.net]())
 
 (tintin++ is a mud client for unix related operating systems)
 
