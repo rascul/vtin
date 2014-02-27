@@ -39,7 +39,8 @@ int main(int argc, char *argv[]) {
 	gtk_widget_set_can_focus(GTK_WIDGET(term), FALSE);
 	
 	/* tt++ must be in $PATH */
-	g_shell_parse_argv("tt++", NULL, &term_argv, NULL);
+	/*g_shell_parse_argv("tt++", NULL, &term_argv, NULL);*/
+	g_shell_parse_argv("/home/rascul/.local/bin/runlyntin -c /home/rascul/.lyntin.ini", NULL, &term_argv, NULL);
 	vte_terminal_fork_command_full(VTE_TERMINAL(term), VTE_PTY_DEFAULT, NULL, term_argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
 	
 	/* i would prefer to just disable the damn cursor, but alas, that doesn't seem to be something easy
